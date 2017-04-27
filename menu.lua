@@ -1,9 +1,14 @@
 local menu = {}
 menu.deltaTime = 0
 menu.world = 1
+menu.init = 0
 
-function menu.load()
-	background = love.graphics.newImage('background.png')
+
+function menu.update()
+	if menu.init == 0 then
+		background = love.graphics.newImage('background.png')
+		menu.init = 1
+	end
 end
 
 function menu.draw()
