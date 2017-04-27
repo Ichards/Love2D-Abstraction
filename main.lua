@@ -1,9 +1,7 @@
 local functionset = require("functionset")
 
 
-function love.load()
-	functionset.load()
-end
+
 
 function love.update(dt)
 	functionset.deltaTime = dt
