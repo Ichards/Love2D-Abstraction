@@ -1,34 +1,40 @@
 local game = {}
 game.deltaTime = 0
 game.world = 0
+game.init = 0
 
  
-function game.load()
-	platform = {}
-	player = {}
-	platform.width = love.graphics.getWidth()
-	platform.height = love.graphics.getHeight()
- 
-	platform.x = 0
-	platform.y = platform.height / 2
- 
-	player.x = love.graphics.getWidth() / 2
-	player.y = love.graphics.getHeight() / 2
- 
-	player.speed = 200
- 
-	player.img = love.graphics.newImage('purple.png')
- 
-	player.ground = player.y
- 
-	player.y_velocity = 0
- 
-	player.jump_height = -300
-	player.gravity = -500
-end
 
  
 function game.update()
+	--Basically a poor man's load function.
+	if game.init == 0 then 
+		platform = {}
+		player = {}
+		platform.width = love.graphics.getWidth()
+		platform.height = love.graphics.getHeight()
+ 
+		platform.x = 0
+		platform.y = platform.height / 2
+ 
+		player.x = love.graphics.getWidth() / 2
+		player.y = love.graphics.getHeight() / 2
+ 
+		player.speed = 200
+ 
+		player.img = love.graphics.newImage('purple.png')
+ 
+		player.ground = player.y
+ 
+		player.y_velocity = 0
+ 
+		player.jump_height = -300
+		player.gravity = -500
+		game.init = 1
+	end
+	
+	
+	
 	
 	if love.keyboard.isDown('q') then
 		game.world = 1
